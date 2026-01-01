@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class appointment {
+public class Appointment {
     private  String appointmentId;
     private String patientId;
     private String clinicianId;
@@ -21,7 +21,7 @@ public class appointment {
     private LocalDate createdDate;
     private LocalDate lastModified;
 
-    public appointment(String appointmentId,
+    public Appointment(String appointmentId,
                        String patientId,
                        String clinicianId,
                        String facilityId,
@@ -71,5 +71,21 @@ public class appointment {
         return status;
 
     }
+public String toCSV() {
+        return String.join(",",
+                 appointmentId,
+                 patientId,
+                clinicianId,
+                facilityId,
+                appointmentDate.toString(),
+                appointmentTime.toString(),
+                String.valueOf(durationMinutes),
+                appoitmentType,
+                status,
+                reasonForVisit,
+                notes,
+                createdDate.toString(),
+                lastModified.toString()        );
 
+}
 }
