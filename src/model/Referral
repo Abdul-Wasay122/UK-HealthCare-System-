@@ -1,0 +1,108 @@
+package model;
+
+import java.time.LocalDate;
+
+public class Referral {
+    private String referralId;
+    private String patientId;
+    private String referringClinicianId;
+
+    private String referredToClinicianId;
+    private String referringFacilityId;
+    private String referredToFacilityId;
+    private String urgencyLevel;
+    private String referralReason;
+    private String clinicalSummary;
+    private String requestedInvestigations;
+    private String appointmentId;
+    private String status;
+    private String notes;
+    private LocalDate referralDate;
+    private LocalDate createdDate;
+    private LocalDate lastUpdated;
+
+public Referral(String referralId,
+                String patientId,
+                String referringClinicianId,
+                String referredToClinicianId,
+                String referringFacilityId,
+                String referredToFacilityId,
+                LocalDate referralDate,
+                String urgencyLevel,
+                String referralReason,
+                String clinicalSummary,
+                String requestedInvestigations,
+                String status,
+                String appointmentId,
+                String notes,
+                LocalDate createdDate,
+                LocalDate lastUpdated) {
+    this.referralId = referralId;
+    this.patientId = patientId;
+    this.referringClinicianId = referringClinicianId;
+    this.referredToClinicianId = referredToClinicianId;
+    this.referringFacilityId = referringFacilityId;
+    this.referredToFacilityId = referredToFacilityId;
+    this.urgencyLevel = urgencyLevel;
+    this.referralReason = referralReason;
+    this.clinicalSummary = clinicalSummary;
+    this.requestedInvestigations = requestedInvestigations;
+    this.status = status;
+    this.appointmentId = appointmentId;
+    this.notes = notes;
+    this.createdDate = createdDate;
+    this.lastUpdated = lastUpdated;
+
+}
+
+//getters
+
+    public String getReferralId() {
+    return referralId;
+    }
+
+    public String getPatientId() {
+    return patientId;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public String getUrgencyLevel() {
+        return urgencyLevel;
+    }
+
+    public String getReferralReason() {
+        return referralReason;
+    }
+    public String getClinicalSummary() {
+    return clinicalSummary;
+    }
+
+    public String getReferredToClinicianId() {
+        return referredToClinicianId;
+    }
+
+    public String toCSV() {
+        return String.join(",",
+                referralId,
+                patientId,
+                referringClinicianId,
+                referredToClinicianId,
+                referringFacilityId,
+                referredToFacilityId,
+                referralDate.toString(),
+                urgencyLevel,
+                referralReason,
+                clinicalSummary,
+                requestedInvestigations,
+                status,
+                appointmentId,
+                notes,
+                createdDate.toString(),
+                lastUpdated.toString()
+        );
+    }
+
+}
+
